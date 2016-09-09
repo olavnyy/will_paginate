@@ -31,8 +31,9 @@ module WillPaginate
       ActionController::Base.extend ControllerRescuePatch
     end
 
+    # https://github.com/kirs/will_paginate/commit/6bfa7482782c527e6181adc1de0607d5b4730c09
     def self.add_locale_path(config)
-      config.i18n.railties_load_path.unshift(*WillPaginate::I18n.load_path)
+      config.i18n.load_path.unshift(*WillPaginate::I18n.load_path)
     end
 
     # Extending the exception handler middleware so it properly detects
